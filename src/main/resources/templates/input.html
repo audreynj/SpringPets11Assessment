@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert New or Edit Pet's Info</title>
+</head>
+<body>
+  <form th:object="${newPet}" th:action="@{/update/{id}(id=${newPet.id})}" method=POST>
+    Name: <input name="name" size="20" th:field="*{name}"><br />
+    Type: <input name="type" size="20" th:field="*{type}"><br />
+    Owner's Name: <input name="owner" size="20" th:field="*{owner}"><br />
+    <input name="Submit" type="submit" value="submit" />
+  </form>
+  <a href="../viewAll">View All Pet's Info</a>
+
+</body>
+</html>
