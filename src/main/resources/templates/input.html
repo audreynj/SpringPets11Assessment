@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+ <script src=“https://code.jquery.com/jquery-3.7.1.min.js”> </script>
+ <script src=“https://cdn.jsdelivr.net/npm/jqueryvalidation@1.19.5/dist/jquery.validate.min.js”> </script>
 <head>
 <meta charset="UTF-8">
 <title>Insert New or Edit Pet's Info</title>
 </head>
 <body>
-  <form th:object="${newPet}" th:action="@{/update/{id}(id=${newPet.id})}" method=POST>
-    Name: <input name="name" size="20" th:field="*{name}"><br />
-    Type: <input name="type" size="20" th:field="*{type}"><br />
-    Owner's Name: <input name="owner" size="20" th:field="*{owner}"><br />
+  <form id="inputForm" th:object="${newPet}" th:action="@{/update/{id}(id=${newPet.id})}" method=POST>
+    Name: <input name="name" size="20" th:field="*{name}" required><br />
+    Type: <input name="type" size="20" th:field="*{type}"  required  minlength="3"><br />
+    Owner's Name: <input name="owner" size="20" th:field="*{owner}" required><br />
     <input name="Submit" type="submit" value="submit" />
   </form>
   <a href="../viewAll">View All Pet's Info</a>
